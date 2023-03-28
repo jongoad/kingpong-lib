@@ -1,0 +1,17 @@
+{
+  "name": "kingpong-lib",
+  "version": "0.0.1",
+  "description": "A collection of shared data objects, types, and methods for King Pong. King Pong is a fullstack web app created for the 42 school ft_transcendence project. ",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": "https://github.com/jongoad/kingpong-lib",
+  "author": "jgoad <jon@weareopensunday.com>",
+  "license": "MIT",
+  "contributors": [
+    "Cole Hughes (https://github.com/chughes741)",
+    "JohnKingKong (https://github.com/JohnKingKong)",
+    "Ismael Yahoui (https://github.com/oddtiming",
+    "Andre Paul Grenon (https://github.com/AndrePaulGrenon"
+  ],
+  "files": ["/dist"]
+}
