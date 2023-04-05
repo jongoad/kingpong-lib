@@ -1,3 +1,10 @@
+
+export enum ProfileEvents {
+  GetProfile = "GetProfileRequest",
+  GetMatchHistory = "getMatchHistoryRequest",
+  UpdateProfile = "updateProfileRequest"
+}
+
 /** User online status */
 export enum UserStatus {
   ONLINE,
@@ -6,7 +13,7 @@ export enum UserStatus {
 }
 
 /** Basic Profile information */
-export class Profile {
+export class ProfileEntity {
   username: string;
   avatar: string;
   status: UserStatus;
@@ -14,18 +21,14 @@ export class Profile {
 }
 
 /** Request for Profile of user of id */
-export class FetchProfileEvent {
+export class GetProfileRequest {
   id: string;
-}
-
-/** Reply containing Profile of requested user */
-export class FetchProfileReply {
-  profile: Profile;
 }
 
 /** Fetch match history of specified user */
-export class FetchMatchHistoryEvent {
+export class GetMatchHistoryRequest {
   id: string;
+  number_of_items: number;
 }
 
 /** Item in a users match history */
@@ -38,20 +41,11 @@ export class MatchHistoryItem {
 }
 
 /** Array of MatchHistoryItem*/
-export class FetchMatchHistoryReply {
+export class MatchHistoryEntity {
   matches: MatchHistoryItem[];
 }
 
 /**  */
-export class CreateProfileEvent {}
-
-/** */
-export class CreateProfileReply {}
-
-/**  */
-export class UpdateProfileEvent {
+export class UpdateProfileRequest {
 	id: number;
 }
-
-/**  */
-export class UpdateProfileReply {}
