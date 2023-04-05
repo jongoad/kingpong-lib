@@ -1,6 +1,31 @@
+/** User online status */
+export enum UserStatus {
+  ONLINE,
+  OFFLINE,
+  AWAY
+}
+
+/** Basic Profile information */
+export class Profile {
+  username: string;
+  avatar: string;
+  status: UserStatus;
+  createdAt: string;
+}
+
+/** Request for Profile of user of id */
+export class FetchProfileEvent {
+  id: string;
+}
+
+/** Reply containing Profile of requested user */
+export class FetchProfileReply {
+  profile: Profile;
+}
+
 /** Fetch match history of specified user */
 export class FetchMatchHistoryEvent {
-  id: number;
+  id: string;
 }
 
 /** Item in a users match history */
@@ -30,6 +55,3 @@ export class UpdateProfileEvent {
 
 /**  */
 export class UpdateProfileReply {}
-
-/**  */
-export class Profile {}
