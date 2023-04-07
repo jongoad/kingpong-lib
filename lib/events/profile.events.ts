@@ -33,14 +33,16 @@ export class GetMatchHistoryRequest {
 
 /** Item in a users match history */
 export class MatchHistoryItem {
-  match_type: string;
-  players: string;
-  results: string;
+  game_type: string;
+  player1: string;
+  player2: string;
+  score_player1: number;
+  score_player2: number;
   date: string;
-  winner: boolean;
 }
 
 /** Array of MatchHistoryItem*/
+/** @todo can you just return MatchHistoryEntity[] (item) */
 export class MatchHistoryEntity {
   matches: MatchHistoryItem[];
 }
