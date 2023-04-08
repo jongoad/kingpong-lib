@@ -2,6 +2,7 @@
 export enum ProfileEvents {
   GetProfile = "GetProfileRequest",
   GetMatchHistory = "getMatchHistoryRequest",
+  GetFriends = "getFriendsRequest",
   UpdateProfile = "updateProfileRequest"
 }
 
@@ -20,14 +21,14 @@ export class ProfileEntity {
   createdAt: string;
 }
 
-/** Request for Profile of user of id */
+/** Request for Profile of user of username */
 export class GetProfileRequest {
-  id: string;
+  username: string;
 }
 
 /** Fetch match history of specified user */
 export class GetMatchHistoryRequest {
-  id: string;
+  username: string;
   number_of_items: number;
 }
 
@@ -41,13 +42,12 @@ export class MatchHistoryItem {
   date: string;
 }
 
-/** Array of MatchHistoryItem*/
-/** @todo can you just return MatchHistoryEntity[] (item) */
-export class MatchHistoryEntity {
-  matches: MatchHistoryItem[];
+/** Request for friends of username */
+export class GetFriendsRequest {
+  username: string;
 }
 
 /**  */
 export class UpdateProfileRequest {
-	id: number;
+	username: number;
 }
