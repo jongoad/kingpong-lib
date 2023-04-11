@@ -1,16 +1,16 @@
-
 export enum ProfileEvents {
   GetProfile = "GetProfileRequest",
   GetMatchHistory = "getMatchHistoryRequest",
   GetFriends = "getFriendsRequest",
-  UpdateProfile = "updateProfileRequest"
+  UpdateProfile = "updateProfileRequest",
+  AddFriend = "addFriendRequest",
 }
 
 /** User online status */
 export enum UserStatus {
   ONLINE,
   OFFLINE,
-  AWAY
+  AWAY,
 }
 
 /** Basic Profile information */
@@ -47,7 +47,13 @@ export class GetFriendsRequest {
   username: string;
 }
 
-/**  */
+/** Request to update profile */
 export class UpdateProfileRequest {
-	username: number;
+  username: number;
+}
+
+/** Request to add a friend */
+export class AddFriendRequest {
+  username: string;
+  friend: string;
 }
