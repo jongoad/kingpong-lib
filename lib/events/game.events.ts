@@ -1,86 +1,46 @@
-import { Ball, Paddle } from "../objects/game.objects";
-
-/**
- * Event names
- *
- * @example emit(gameEvents.createLobby, createLobbyEvent)
- */
 export enum GameEvents {
-  createLobby = "createLobby",
-  joinLobby = "joinLobby",
-  invitePlayer = "invitePlayer",
-  clientReady = "clientReady",
-  gameStart = "gameStart",
-  gameEnd = "gameEnd",
-  clientUpdate = "clientUpdate",
-  serverUpdate = "serverUpdate",
+  SendGameInvite = "sendGameInvite",
+  JoinGameQueue = "joinGameQueue",
+  LeaveGameQueue = "leaveGameQueue",
+  PlayerReady = "playerReady",
+  ClientGameStateUpdate = "clientGameStateUpdate",
+  ServerGameStateUpdate = "serverGameStateUpdate",
 }
 
-/**
- *
- */
-abstract class gameEvent {
+export class GameState {
+    ball_x: number;
+    ball_y: number;
+    paddle_left_y: number;
+    paddle_right_y: number;
+    score_left: number;
+    score_right: number;
+}
+
+export class JoinGameInviteRequest {
+  opponent_username: string;
+}
+
+export class JoinGameQueueRequest {
+  username: string;
+  join_time: string;
+}
+
+export class LeaveGameQueueRequest {
+  username: string;
+}
+
+export class PlayerReadyRequest {
+  username: string;
+  ready: boolean;
+}
+
+export class ClientGameStateUpdateRequest {
+  match_id: string;
   lobby_id: string;
+  username: string;
+  paddle_position: number;
 }
 
-/**
- * Client sent event
- */
-export class CreateLobbyEvent extends gameEvent {}
-
-/**
- *
- */
-export class JoinLobbyEvent extends gameEvent {
-  participant_type: string;
-}
-
-/**
- *
- */
-export class JoinLobbyReply extends gameEvent {
-  participant_type: string;
-}
-
-/**
- *
- */
-export class InvitePlayerEvent extends gameEvent {
-  participant_type: string;
-}
-
-/**
- *
- */
-export class ClientReadyEvent extends gameEvent {}
-
-/**
- *
- */
-export class GameStartEvent extends gameEvent {}
-
-/**
- *
- */
-export class GameEndEvent extends gameEvent {}
-
-/**
- *
- */
-export class ClientUpdateEvent extends gameEvent {
-  paddle_movement: number;
-}
-
-/**
- *
- */
-export class ServerUpdateEvent {
-  participant_type: string;
-  ball: Ball;
-  paddle_left: Paddle;
-  paddle_right: Paddle;
-  score: {
-    player: number;
-    opponent: number;
-  };
+export class ServerGameStateUpdateEvent {
+  game_state: GameState;
 }
