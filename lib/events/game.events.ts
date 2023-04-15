@@ -31,6 +31,7 @@ export class LeaveGameQueueRequest {
 
 export class PlayerReadyRequest {
   username: string;
+  lobby_id: string;
   ready: boolean;
 }
 
