@@ -1,6 +1,6 @@
 {
   "name": "kingpong-lib",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "description": "A collection of shared data objects, types, and methods for King Pong. King Pong is a fullstack web app created for the 42 school ft_transcendence project. ",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

@@ -56,6 +56,7 @@ export class GameStartedEvent {
   match_id: string;
   lobby_id: string;
   game_state: GameState;
+  player_side: string;
 }
 
 export class GameEndedEvent {
