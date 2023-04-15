@@ -1,9 +1,14 @@
 export enum GameEvents {
+  /** Client sent events */
   SendGameInvite = "sendGameInvite",
   JoinGameQueue = "joinGameQueue",
   LeaveGameQueue = "leaveGameQueue",
   PlayerReady = "playerReady",
   ClientGameStateUpdate = "clientGameStateUpdate",
+  /** Server sent events */
+  GameStarted = "gameStarted",
+  GameEnded = "gameEnded",
+  LobbyCreated = "lobbyCreated",
   ServerGameStateUpdate = "serverGameStateUpdate",
 }
 
@@ -30,8 +35,9 @@ export class LeaveGameQueueRequest {
 }
 
 export class PlayerReadyRequest {
-  username: string;
+  match_id: string;
   lobby_id: string;
+  username: string;
   ready: boolean;
 }
 
@@ -44,4 +50,22 @@ export class ClientGameStateUpdateRequest {
 
 export class ServerGameStateUpdateEvent {
   game_state: GameState;
+}
+
+export class GameStartedEvent {
+  match_id: string;
+  lobby_id: string;
+  game_state: GameState;
+}
+
+export class GameEndedEvent {
+  match_id: string;
+  lobby_id: string;
+  game_state: GameState;
+}
+
+export class LobbyCreatedEvent {
+  lobby_id: string;
+  opponent_username: string;
+  player_side: string;
 }
