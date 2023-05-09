@@ -8,9 +8,9 @@ export enum ProfileEvents {
 
 /** User online status */
 export enum UserStatus {
-  ONLINE,
-  OFFLINE,
-  AWAY,
+  ONLINE = "ONLINE",
+  OFFLINE = "OFFLINE",
+  AWAY = "AWAY",
 }
 
 /** Basic Profile information */
